@@ -24,15 +24,11 @@ class Solution:
                 p2 = p2.next
             q = q.next
 
-        while p1:
+        if p1:
             q.next = p1
-            p1 = p1.next
-            q = q.next
-
-        while p2:
+    
+        if p2:
             q.next = p2
-            p2 = p2.next
-            q = q.next
 
         return result.next
 
