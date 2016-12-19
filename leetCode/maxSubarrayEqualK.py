@@ -1,6 +1,5 @@
 import sys
 def findMaxSubarray(nums, key):
-
     sumi = 0
     maxLen = -sys.maxint - 1
     dic = {}
@@ -8,10 +7,14 @@ def findMaxSubarray(nums, key):
         sumi += nums[idx]
         if sumi == key:
             maxLen = max(maxLen, idx+1)
+            #idx
         diff = sumi - key
         if diff in dic.keys():
             subLen = idx - dic[diff]
-            maxLen = max(maxLen, subLen)
+            if subLen > maxLen:
+                maxLen = subLen
+                print dic[diff] + 1
+                print idx
 
         if sumi not in dic.keys():
             dic[sumi] = idx
@@ -24,8 +27,9 @@ def findMaxSubarray(nums, key):
 
 
 # l1 = [-2, -1, 2, 1]
-l1 = [1, -1, 5, -2, 3]
-print findMaxSubarray(l1, 3)
+#l1 = [1, -1, 5, -2, 3]
+l1 = [3, 2, 5, 1, 1, 2, -1, 2]
+print findMaxSubarray(l1, 5)
 
 
 
