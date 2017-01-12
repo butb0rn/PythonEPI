@@ -1,3 +1,5 @@
+import unittest
+
 class Coordinate(object):
     def __init__(self, x, y):
         self.x = x
@@ -40,8 +42,18 @@ class Solution(object):
 
         return False
 
+class TestGetPath(unittest.TestCase):
+    def setUp(self):
+        self.maze = [[0 for j in range(4)] for i in range(4)]
 
-maze = [[0 for j in range(4)] for i in range(4)]
-maze[0][1], maze[2][1], maze[3][1], maze[1][3], maze[2][3] = 1,1,1,1,1
-res = Solution().getPath(maze, Coordinate(3,0), Coordinate(0,3))
-print [(c.x,c.y) for c in res]
+    def test_there_is_a_path(self):
+        self.maze[0][1], self.maze[2][1], self.maze[3][1], \
+        self.maze[1][3], self.maze[2][3] = 1,1,1,1,1
+        res = Solution().getPath(self.maze, Coordinate(3,0), Coordinate(0,3))
+        resultPath = [(c.x, c.y) for c in res]
+        correctPath = [(3, 0), (2, 0), (1, 0), (1, 1), (1, 2), (0, 2), (0, 3)]
+        self.assertEqual(resultPath, correctPath)
+
+
+
+if __name__ == '__main__': unittest.main()
