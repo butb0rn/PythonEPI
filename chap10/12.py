@@ -28,7 +28,7 @@ def buildTree(preOrder, startPre, finishPre, startIn, finishIn, dic):
     leftSideSize = rootIdx - startIn
 
     return Node(preOrder[startPre], \
-           buildTree(preOrder, startPre+1, startPre+1+leftSideSize, startIn, rootIdx, dic), \
+           buildTree(preOrder, startPre+1, startPre+leftSideSize+1, startIn, rootIdx, dic), \
            buildTree(preOrder, startPre+1+leftSideSize, finishPre, rootIdx+1, finishIn, dic))
 
 x = getTree("HBFEACDGI","FBAEHCDIG")
