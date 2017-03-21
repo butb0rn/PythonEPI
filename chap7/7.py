@@ -8,7 +8,6 @@ def phoneMnemonic(phoneNumber):
         partial = phoneMnemonicHelper(phoneNumber, idx+1)
         for l in letters[int(phoneNumber[idx])]:
             result += [l+x for x in partial] or l
-            print result
         return result
 
     return phoneMnemonicHelper(phoneNumber, 0)

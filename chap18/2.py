@@ -5,8 +5,7 @@ def minWaitingList(l):
         waitingTime += l[i]
         result += waitingTime
 
-    x = reduce(lambda x, y: x + y, l[:-1])
-    return x
+    return result
 
 
 print minWaitingList([2,5,1,3])

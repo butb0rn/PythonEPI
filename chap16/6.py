@@ -20,4 +20,4 @@ def generateMatchedParens(k):
     return result
 
 
-print generateMatchedParens(4)
+print generateMatchedParens(2)

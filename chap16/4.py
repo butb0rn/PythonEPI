@@ -9,7 +9,6 @@ def generateSubs(nums):
         for bit in range(len(nums)):
             if isActive(bit, i):
                 sub.append(nums[bit])
-
         subsets.append(sub)
     return subsets
 
