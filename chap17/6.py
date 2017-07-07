@@ -4,12 +4,13 @@ class Item(object):
         self.value = v
 
 def findOptimumSub(items, capacity):
-    mat = [[ -1 for j in range(capacity+1)] for i in range(len(items)+1)]
+    mat = [[ -1 for j in range(capacity+1)] for i in range(len(items))]
     def optHelper(itemIdx, capacity):
         if itemIdx < 0: return 0
         if mat[itemIdx][capacity] == -1:
             withoutCurItem = optHelper(itemIdx-1, capacity)
-            withCurItem =  items[itemIdx].value + optHelper(itemIdx-1, capacity-items[itemIdx].weight) if items[itemIdx].weight <= capacity else 0
+            withCurItem =  items[itemIdx].value + optHelper(itemIdx-1, capacity-items[itemIdx].weight) \
+                                if items[itemIdx].weight <= capacity else 0
 
             mat[itemIdx][capacity] = max(withCurItem, withoutCurItem)
 

@@ -1,27 +1,19 @@
-def mergeTwoSortedArrays(A, m, B, n):
-    a = m-1
-    b = n-1
-    idx = m+n-1
+def mergeArrays(A, B):
+    idxA = len(A)-1
+    idxB = len(B)-1
+    idx = idxA + idxB-1
 
-    while a >= 0 and b >= 0:
-        if A[a] >= B[b]:
-            A[idx] = A[a]
-            a -= 1
+    while idxA >= 0 and idxB >= 0:
+        if A[idxA] > B[idxB]:
+            A[idx] = A[idxA]
+            idxA -= 1
         else:
-            A[idx] = B[b]
-            b -= 1
+            A[idx] = B[idxB]
+            idxB -= 1
 
         idx -= 1
 
-    while b >= 0:
-        A[idx] = B[b]
-        b -= 1
+    while idxB >= 0:
+        A[idx] = B[idxB]
+        idxB -= 1
         idx -= 1
-
-    return A
-
-
-A = [4,5,8,19,22,None,None,None,None]
-B = [3,7,10,26]
-
-print mergeTwoSortedArrays(A, 5, B, len(B))

@@ -6,12 +6,12 @@ def largestRecArea(heights):
     for i in range(len(heights)+1):
         while s and isValid(i, s[-1]):
             height = heights[s.pop()]
-            width = i if not s else i - s[-1] -1
+            width = i if not s else i - s[-1] - 1
             maxArea = max(maxArea, height * width)
 
         s.append(i)
     return maxArea
 
 
-heights = [1,4,4,2,5,6,3,2,6,6,2,1,3,3]
+heights = [1,4,2,5,6,3,2,6,6,5,2,1,3]
 print largestRecArea(heights)
